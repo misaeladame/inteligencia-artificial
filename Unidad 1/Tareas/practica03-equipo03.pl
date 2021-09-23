@@ -25,7 +25,7 @@
 
 
 /*
-Elabore el programa en Prolog y en Python para los siguientes ejercicios:
+Elabore el programa en Prolog para los siguientes ejercicios:
 1. Defina la relación imprime_lista(L) que imprima el contenido de la lista L, por ejemplo:
 ?- imprime_lista([5,2,8,9,22]).
 5 2 8 9 22
