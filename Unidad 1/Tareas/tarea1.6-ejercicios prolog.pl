@@ -2,30 +2,30 @@
   Tarea 1.6 ejercicios prolog
 
   Equipo: 3
-  
-  Nombre: Cristian Gabriel Piña Rosales
-  Número de control: 18130588
-  
-  Nombre: José Misael Adame Sandoval
-  Número de control: 18131209
 
-  Nombre: Jose Luis Flores Ramos
-  Número de control: 18131237
-  
-  Nombre: Ricardo Raúl Castro Luna
-  Número de control: 18131227
-  
-  Nombre: Kevin Alejandro Ruiz Martínez
-  Número de control: 18131280
+  Nombre: PiÃ±a Rosales Cristian Gabriel 
+  NÃºmero de Control: 18130588
+
+  Nombre: Adame Sandoval JosÃ© Misael
+  NÃºmero de Control: 18131209
+
+  Nombre: Castro Luna Ricardo RaÃºl
+  NÃºmero de Control: 18131227
+
+  Nombre: Flores Ramos JosÃ© Luis
+  NÃºmero de Control: 18131237
+
+  Nombre: Ruiz MartÃ­nez Kevin Alejandro
+  NÃºmero de Control: 18131280
 
 
 1. Defina los hechos en prolog para representar lo siguiente:
 
-- Juan tiene 28 años.
-- María tiene 14 años.
-- Sara tiene 25 años.
-- Manuel tiene 20 años.
-- Yolanda tiene 16 años.
+- Juan tiene 28 aÃ±os.
+- MarÃ­a tiene 14 aÃ±os.
+- Sara tiene 25 aÃ±os.
+- Manuel tiene 20 aÃ±os.
+- Yolanda tiene 16 aÃ±os.
 
 */
 
@@ -37,12 +37,12 @@ persona_edad(yolanda,16).
 
 gusta(juan,almendras).
 
-esPadre(juan,pedro)
-esPadre(pedro, maria)
-esPadre(jose, luis)
+esPadre(juan,pedro).
+esPadre(pedro, maria).
+esPadre(jose, luis).
 
 /*
- Defina una regla para que liste las personas mayores de 15 años.
+ Defina una regla para que liste las personas mayores de 15 aÃ±os.
 */
 
 es_mayor(X) :- persona_edad(X, Y), Y > 15.
@@ -55,51 +55,50 @@ es_mayor_var(X, Y) :- persona_edad(X, Z), Z > Y.
 
 /*
    Defina las metas para contestar las siguientes preguntas:
-   - ¿Hay alguien llamado Yolanda?
+   - Â¿Hay alguien llamado Yolanda?
  */
  
  llamado_yolanda() :- persona_edad(X, Y), X == yolanda, Y > 0.
  
  /*
-   - ¿Hay alguien mayor de 20 años?
+   - Â¿Hay alguien mayor de 20 aÃ±os?
  */
  
  mayor_que_20(X):- persona_edad(X, Y), Y > 20.
 
 /*
-   - ¿Quiénes tienen menos de 20 años
+   - Â¿QuiÃ©nes tienen menos de 20 aÃ±os
 */
  
  menores_que_20(X):- persona_edad(X, Y), Y < 20.
  
- /*
-
+/*
 2. Suponiendo que el predicado gusta(X,Y) indica que a X le gusta Y, escriba los
-objetivos que habría que definir en Prolog para contestar las siguientes preguntas:
+objetivos que habrÃ¡ que definir en Prolog para contestar las siguientes preguntas:
 
-- ¿Le gusta algo a Juan?
- */
+- Â¿Le gusta algo a Juan?
+*/
  
  le_gusta_algo_juan(juan,_) :- gusta(juan,_).
 
  /*
- - ¿Le gustan a Juan las almendras?
+ - Â¿Le gustan a Juan las almendras?
  */
 
  gusta(juan, almendras).
 
 /*
-   - ¿Qué es lo que le gusta a Juan?
+   - Â¿QuÃ© es lo que le gusta a Juan?
 */
 
 gusta(juan, X).
 
 /*
 
-A continuación, suponiendo que esPadre(X,Y) indica que X es el padre de Y, exprese en
+A continuaciÃ³n, suponiendo que esPadre(X,Y) indica que X es el padre de Y, exprese en
 lenguaje natural lo que significan las preguntas:
 ?- esPadre(X,pedro).
-¿Quien es padre de pedro?
+Â¿Quien es padre de pedro?
 
 
 ?- esPadre(_,pedro).
@@ -115,40 +114,60 @@ lenguaje natural lo que significan las preguntas:
  /*
  
 3.- Represente en Prolog, los siguientes hechos:
-- Pedro quiere a María.
-- Pedro quiere a Belén.
-- Manuel quiere a Belén.
-- María quiere a Pedro.
-- Todos quieren a Juan y a María.
-- Todo el mundo se quiere a sí mismo.
+- Pedro quiere a MarÃ­a.
+- Pedro quiere a BelÃ©n.
+- Manuel quiere a BelÃ©n.
+- MarÃ­a quiere a Pedro.
+- Todos quieren a Juan y a MarÃ­a.
+- Todo el mundo se quiere a sÃ­ mismo.
 - Alguien quiere a Juan y a Pedro.
-- Alguien quiere a María.
-- Alguien quiere a todos los demás.
+- Alguien quiere a MarÃ­a.
+- Alguien quiere a todos los demÃ¡s.
  
  */
  
+quiere_a(pedro,maria).
+quiere_a(pedro,belen).
+quiere_a(manuel,belen).
+quiere_a(maria,pedro).
+quiere_a(_,juan). quiere_a(_,maria).
+quiere_a(_,X).
+quiere_a(X,juan). quiere_a(X,pedro).
+quiere_a(X,maria).
+quiere_a(X,_).
  
  /*
  
-4.- A continuación, escriba los objetivos en Prolog necesarios para responder a las
-preguntas indicadas a continuación:
-- ¿Quiere Manuel a María?
-- ¿Quiere Manuel a María y a Pedro?
-- ¿Quiere Manuel a alguien?
-- ¿Quiénes son los que quieren a María?
-- ¿Quiénes son los que quieren a Pedro?
-- ¿Quiénes son los que se quieren mutuamente?
-- ¿Quiénes son los que se quieren a sí mismos?
-- ¿Se quiere Manuel a sí mismo?
-- ¿Hay alguien que quiera a María?
-- ¿Hay alguien que quiera a alguien?
-- ¿Hay alguien que quiera a todo el mundo?
+4.- A continuaciÃ³n, escriba los objetivos en Prolog necesarios para responder a las
+preguntas indicadas a continuaciÃ³n:
+- Â¿Quiere Manuel a MarÃ­a?
+- Â¿Quiere Manuel a MarÃ­a y a Pedro?
+- Â¿Quiere Manuel a alguien?
+- Â¿QuiÃ©nes son los que quieren a MarÃ­a?
+- Â¿QuiÃ©nes son los que quieren a Pedro?
+- Â¿QuiÃ©nes son los que se quieren mutuamente?
+- Â¿QuiÃ©nes son los que se quieren a sÃ­ mismos?
+- Â¿Se quiere Manuel a sÃ­ mismo?
+- Â¿Hay alguien que quiera a MarÃ­a?
+- Â¿Hay alguien que quiera a alguien?
+- Â¿Hay alguien que quiera a todo el mundo?
  
- */
+*/
+
+quieree_a(manuel,maria).
+quieree_a(manuel,maria). quieree_a(manuel,pedro).
+quieree_a(manuel,Y).
+quieree_a(X,maria).
+quieree_a(X,pedro).
+quieree_a(manuel,manuel) | quieree_a(maria,maria).
+quieree_a(manuel,manuel).
+quieree_a(X,maria).
+quieree_a(X,Y).
+quieree_a(X,_).
 
 /*
 
-5. Defina la relación máximo(Lista_enteros) para calcular el mayor elemento de una lista
+5. Defina la relaciÃ³n mÃ¡ximo(Lista_enteros) para calcular el mayor elemento de una lista
 de enteros.
 
 */
@@ -169,7 +188,7 @@ maximo2(X, Y, [Z|Zs]):-
           
 /*
 
-6. Defina la relación cuenta(Elemento, Lista, Cantidad) que cuente el número de veces que
+6. Defina la relaciÃ³n cuenta(Elemento, Lista, Cantidad) que cuente el nÃºmero de veces que
 un elemento se encuentra en una lista.
 
 */
@@ -183,9 +202,9 @@ listar([X|XS],NL):-cuenta(X,L),listar(XS,NX),append(L,NX,NL).
 
 /*
 
-7. Defina la relación elimina(Elemento, Lista_ori, Lista_res) para que elimine un elemento
-de una lista. El resultado se guardará en otra lista nueva. Por ejemplo, el resultado de
-borrar el valor a de la lista [b,a,g,a,h,b], sería la nueva lista formada por [b,g,h,b].
+7. Defina la relaciÃ³n elimina(Elemento, Lista_ori, Lista_res) para que elimine un elemento
+de una lista. El resultado se guardarÃ¡ en otra lista nueva. Por ejemplo, el resultado de
+borrar el valor a de la lista [b,a,g,a,h,b], serÃ­a la nueva lista formada por [b,g,h,b].
 
 */
 
@@ -230,4 +249,6 @@ L = [0,2,5,6,7,9,10]
 yes.
 
 */
+
+agregar_ordenada([A | LA], B, [A,LC]):- agregar_ordenada(LA, B, LC).
 
