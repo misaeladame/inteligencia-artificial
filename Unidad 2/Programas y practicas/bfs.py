@@ -41,4 +41,5 @@ def bfs(graph, Estado_inicial, Estado_final):
 
 print(bfs(graph, '1', '7'))
 print(bfs(graph, '1', '11'))
-print(bfs(graph, '1', '14'))
+print(bfs(graph, '1', '13'))
+print(bfs(graph, '1', '16'))
