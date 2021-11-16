@@ -15,7 +15,7 @@ destination='LGA'
 
 flights={}
 #
-for line in file('schedule.txt'):
+for line in open('schedule.txt'):
   origin,dest,depart,arrive,price=line.strip().split(',')
   flights.setdefault((origin,dest),[])
 
